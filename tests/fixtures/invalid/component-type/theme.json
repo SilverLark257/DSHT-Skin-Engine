@@ -1,0 +1,25 @@
+{
+  "format": "dshte.theme",
+  "formatVersion": 1,
+  "release": "1.0.0",
+  "id": "fixture-pack",
+  "name": "Fixture Pack",
+  "nameZh": "样例包",
+  "colorScheme": "light",
+  "tokens": {
+    "light": {
+      "--dsw-alias-bg-base": "#FAF9F5",
+      "--dsw-alias-bg-layer-1": "#FFFDF8",
+      "--dsw-alias-brand-primary": "#CC785C",
+      "--dsw-alias-label-primary": "#2E2921",
+      "--dsw-alias-label-secondary": "#6B6459",
+      "--dsw-alias-border-l1": "#E6E0D6",
+      "--dsw-alias-border-l2": "#D5CDC1"
+    }
+  },
+  "components": {
+    "card": {
+      "radius": "big"
+    }
+  }
+}

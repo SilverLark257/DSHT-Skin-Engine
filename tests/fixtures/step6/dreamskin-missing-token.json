@@ -1,0 +1,17 @@
+{
+  "format": "dsh-dream-skin/pack",
+  "version": 1,
+  "manifest": {
+    "id": "demo-broken",
+    "name": "Demo Broken",
+    "colorScheme": "light",
+    "tokens": {
+      "--dsw-alias-bg-base": "#181715",
+      "--dsw-alias-bg-layer-1": "#252320",
+      "--dsw-alias-brand-primary": "#d4896c",
+      "--dsw-alias-label-primary": "#faf9f5",
+      "--dsw-alias-label-secondary": "#a09d96",
+      "--dsw-alias-border-l1": "#34302b"
+    }
+  }
+}

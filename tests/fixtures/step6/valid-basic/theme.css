@@ -1,0 +1,4 @@
+.dshte-fixture-basic {
+	--dshte-fixture-marker: "fixture-basic";
+	background-image: url(assets/images/dot.png);
+}

@@ -1,0 +1,52 @@
+/* cocreate-paper — theme.css (unsafe channel, validated by pack-check).
+ *
+ * Scope rules for this example:
+ *   - ONLY selectors verified in dom-snapshot.md / design-spec.md are used:
+ *       [data-slot="…"]  (verified slot names) and html[data-dsh-material="none"]
+ *   - NO build-hash class names at all (the layout module re-rolls them on
+ *     every DSH release). Component-level selectors come from the Step 4
+ *     selector registry + real-conversation DOM capture (方案 §6.5).
+ *   - url(...) must point at assets/ or /dsh-tavern-skin/assets/ (none needed here).
+ */
+
+/* 品牌字：800 字重 + 0.12em 字距 + 全大写（design-spec §2、§6.8） */
+[data-slot="sidebar.brand.name"],
+[data-slot="conversation.hero.brand.mark"] {
+  font-family: var(--dshte-font-brand, var(--dshte-font-latin));
+  font-weight: 800;
+  letter-spacing: var(--dshte-tracking-eyebrow);
+  text-transform: uppercase;
+}
+
+/* 参考图明确"无毛玻璃"（design-spec §1.4）。
+   ⚠ data-dsh-material 在 <html> 自己身上（dom-snapshot §6）：必须写
+   html[data-dsh-material="none"]，不能带后代空格（"html [data-…]" 匹配不到自身）。 */
+html[data-dsh-material="none"],
+html[data-dsh-material="none"] *,
+html[data-dsh-material="none"] *::before,
+html[data-dsh-material="none"] *::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* 输入坞占位符（design-spec §6.5） */
+[data-slot="conversation.input.dock"] textarea::placeholder,
+[data-slot="conversation.input.dock"] input::placeholder {
+  color: var(--dshte-fg-placeholder);
+  font-family: var(--dshte-font-sans);
+}
+
+/* 细滚动条，避免默认滚动条破坏"干净"观感（只在滚动条伪元素上，不改布局） */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--dshte-fg-muted) 35%, transparent);
+  border-radius: 9999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}

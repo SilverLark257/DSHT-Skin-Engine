@@ -1,0 +1,9 @@
+# Tavern 自动生成的插件 guard / 状态文件（机器相关，不要提交）
+.tavern-entry.mjs
+.tavern-status.json
+
+# 依赖 / 构建噪音 / 系统文件
+node_modules/
+*.log
+.DS_Store
+Thumbs.db

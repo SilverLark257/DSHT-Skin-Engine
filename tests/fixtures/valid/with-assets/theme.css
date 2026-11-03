@@ -1,0 +1,2 @@
+@font-face { font-family: "Fixture Sans"; src: url(assets/fonts/fixture.woff2) format("woff2"); }
+[data-slot="sidebar.brand.name"] { letter-spacing: 0.12em; background-image: url(assets/images/preview.svg); }

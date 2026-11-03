@@ -1,0 +1,37 @@
+{
+  "format": "dshte.theme",
+  "formatVersion": 1,
+  "release": "2.3.4",
+  "id": "fixture-basic",
+  "name": "Fixture Basic",
+  "nameZh": "夹具基础包",
+  "author": {
+    "name": "host-io",
+    "url": "local://fixture-basic"
+  },
+  "description": "Step 6 宿主测试夹具：带 theme.css 与图片资源。",
+  "license": "MIT",
+  "colorScheme": "light",
+  "missingScheme": "mirror",
+  "preview": {
+    "bg": "#FAF9F5",
+    "fg": "#2E2921",
+    "accent": "#CC785C"
+  },
+  "css": "theme.css",
+  "assets": {
+    "preview": "assets/images/dot.png"
+  },
+  "tokens": {
+    "light": {
+      "--dsw-alias-bg-base": "#FAF9F5",
+      "--dsw-alias-bg-layer-1": "#FFFDF8",
+      "--dsw-alias-brand-primary": "#CC785C",
+      "--dsw-alias-label-primary": "#2E2921",
+      "--dsw-alias-label-secondary": "#6B6459",
+      "--dsw-alias-border-l1": "#E6E0D6",
+      "--dsw-alias-border-l2": "#D5CDC1",
+      "--dshte-fixture-basic": "1"
+    }
+  }
+}

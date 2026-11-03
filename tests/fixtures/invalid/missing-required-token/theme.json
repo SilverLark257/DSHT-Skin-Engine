@@ -1,0 +1,14 @@
+{
+  "format": "dshte.theme",
+  "formatVersion": 1,
+  "release": "1.0.0",
+  "id": "fixture-pack",
+  "name": "Fixture Pack",
+  "nameZh": "样例包",
+  "colorScheme": "light",
+  "tokens": {
+    "light": {
+      "--dsw-alias-bg-base": "#FAF9F5"
+    }
+  }
+}

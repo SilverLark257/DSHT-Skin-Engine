@@ -1,0 +1,495 @@
+/* dsh-tavern-skin-engine — registry-driven structural styles (方案 §2.5/§6.5).
+ *
+ * Every rule is OPT-IN through `html[data-dshte-set~="<token>"]`, where the engine
+ * writes the list of declared recipe knobs, e.g.
+ *   <html data-dshte-set="card.background card.radius region.center.bg ...">
+ * A pack only affects the knobs it actually declares, so a pack that does not set
+ * "card.paddingX" never resets the host's padding. Values come from `--dshte-*`
+ * variables written by src/client/recipes.js into style#dshte-vars.
+ *
+ * Selectors are the registry in src/client/recipes.js (captured from a REAL
+ * conversation, docs/selector-registry.md). No build-hash class names are used
+ * verbatim; `[class*="_frame"]` / `[class*="_sidebarCol"]` are structural
+ * fallbacks only, matching a stable suffix.
+ *
+ * This file is inlined as a string by scripts/build-client.mjs (`// @inline-css`).
+ */
+
+/* ── Regions ─────────────────────────────────────────────────────────────── */
+
+/* sidebar */
+[data-dshte-set~="region.sidebar.background"] [data-slot="root"] > [class*="_frame"] > [class*="_sidebarCol"] {
+  background: var(--dshte-region-sidebar-bg) !important;
+}
+[data-dshte-set~="region.sidebar.backgroundImage"] [data-slot="root"] > [class*="_frame"] > [class*="_sidebarCol"] {
+  background-image: var(--dshte-region-sidebar-bg-image) !important;
+  background-repeat: repeat !important;
+}
+[data-dshte-set~="region.sidebar.shadow"] [data-slot="root"] > [class*="_frame"] > [class*="_sidebarCol"] {
+  box-shadow: var(--dshte-region-sidebar-shadow) !important;
+}
+[data-dshte-set~="region.sidebar.borderWidth"] [data-slot="root"] > [class*="_frame"] > [class*="_sidebarCol"] {
+  box-shadow: var(--dshte-region-sidebar-shadow, 0 0 0 0 transparent),
+    inset calc(-1 * var(--dshte-region-sidebar-border-width)) 0 0 0 var(--dshte-region-sidebar-border-color, transparent);
+}
+[data-dshte-set~="region.sidebar.opacity"] [data-slot="root"] > [class*="_frame"] > [class*="_sidebarCol"] {
+  opacity: var(--dshte-region-sidebar-opacity) !important;
+}
+[data-dshte-set~="region.sidebar.backdropFilter"] [data-slot="root"] > [class*="_frame"] > [class*="_sidebarCol"] {
+  -webkit-backdrop-filter: var(--dshte-region-sidebar-backdrop) !important;
+  backdrop-filter: var(--dshte-region-sidebar-backdrop) !important;
+}
+
+/* center */
+[data-dshte-set~="region.center.background"] [data-dsh-center-col] {
+  background: var(--dshte-region-center-bg) !important;
+}
+[data-dshte-set~="region.center.backgroundImage"] [data-dsh-center-col] {
+  background-image: var(--dshte-region-center-bg-image) !important;
+  background-repeat: repeat !important;
+}
+[data-dshte-set~="region.center.shadow"] [data-dsh-center-col] {
+  box-shadow: var(--dshte-region-center-shadow) !important;
+}
+[data-dshte-set~="region.center.borderWidth"] [data-dsh-center-col] {
+  box-shadow: var(--dshte-region-center-shadow, 0 0 0 0 transparent),
+    inset var(--dshte-region-center-border-width) 0 0 0 var(--dshte-region-center-border-color, transparent);
+}
+[data-dshte-set~="region.center.opacity"] [data-dsh-center-col] {
+  opacity: var(--dshte-region-center-opacity) !important;
+}
+[data-dshte-set~="region.center.backdropFilter"] [data-dsh-center-col] {
+  -webkit-backdrop-filter: var(--dshte-region-center-backdrop) !important;
+  backdrop-filter: var(--dshte-region-center-backdrop) !important;
+}
+
+/* rightbar */
+[data-dshte-set~="region.rightbar.background"] [data-rightbar-col] {
+  background: var(--dshte-region-rightbar-bg) !important;
+}
+[data-dshte-set~="region.rightbar.backgroundImage"] [data-rightbar-col] {
+  background-image: var(--dshte-region-rightbar-bg-image) !important;
+  background-repeat: repeat !important;
+}
+[data-dshte-set~="region.rightbar.shadow"] [data-rightbar-col] {
+  box-shadow: var(--dshte-region-rightbar-shadow) !important;
+}
+[data-dshte-set~="region.rightbar.borderWidth"] [data-rightbar-col] {
+  box-shadow: var(--dshte-region-rightbar-shadow, 0 0 0 0 transparent),
+    inset var(--dshte-region-rightbar-border-width) 0 0 0 var(--dshte-region-rightbar-border-color, transparent);
+}
+[data-dshte-set~="region.rightbar.opacity"] [data-rightbar-col] {
+  opacity: var(--dshte-region-rightbar-opacity) !important;
+}
+[data-dshte-set~="region.rightbar.backdropFilter"] [data-rightbar-col] {
+  -webkit-backdrop-filter: var(--dshte-region-rightbar-backdrop) !important;
+  backdrop-filter: var(--dshte-region-rightbar-backdrop) !important;
+}
+
+/* composer (the real box is [data-composer-card]) */
+[data-dshte-set~="region.composer.background"] [data-composer-card] {
+  background: var(--dshte-region-composer-bg) !important;
+}
+[data-dshte-set~="region.composer.backgroundImage"] [data-composer-card] {
+  background-image: var(--dshte-region-composer-bg-image) !important;
+}
+[data-dshte-set~="region.composer.shadow"] [data-composer-card] {
+  box-shadow: var(--dshte-region-composer-shadow) !important;
+}
+[data-dshte-set~="region.composer.borderWidth"] [data-composer-card] {
+  box-shadow: var(--dshte-region-composer-shadow, 0 0 0 0 transparent),
+    inset 0 calc(-1 * var(--dshte-region-composer-border-width)) 0 0 var(--dshte-region-composer-border-color, transparent);
+}
+[data-dshte-set~="region.composer.opacity"] [data-composer-card] {
+  opacity: var(--dshte-region-composer-opacity) !important;
+}
+[data-dshte-set~="region.composer.backdropFilter"] [data-composer-card] {
+  -webkit-backdrop-filter: var(--dshte-region-composer-backdrop) !important;
+  backdrop-filter: var(--dshte-region-composer-backdrop) !important;
+}
+
+/* settings */
+[data-dshte-set~="region.settings.background"] [role="dialog"] {
+  background: var(--dshte-region-settings-bg) !important;
+}
+[data-dshte-set~="region.settings.backgroundImage"] [role="dialog"] {
+  background-image: var(--dshte-region-settings-bg-image) !important;
+}
+[data-dshte-set~="region.settings.shadow"] [role="dialog"] {
+  box-shadow: var(--dshte-region-settings-shadow) !important;
+}
+[data-dshte-set~="region.settings.borderWidth"] [role="dialog"] {
+  box-shadow: var(--dshte-region-settings-shadow, 0 0 0 0 transparent),
+    inset 0 0 0 var(--dshte-region-settings-border-width) var(--dshte-region-settings-border-color, transparent);
+}
+[data-dshte-set~="region.settings.opacity"] [role="dialog"] {
+  opacity: var(--dshte-region-settings-opacity) !important;
+}
+[data-dshte-set~="region.settings.backdropFilter"] [role="dialog"] {
+  -webkit-backdrop-filter: var(--dshte-region-settings-backdrop) !important;
+  backdrop-filter: var(--dshte-region-settings-backdrop) !important;
+}
+
+/* ── Components ──────────────────────────────────────────────────────────── */
+
+/* card — assistant message card (registry: [data-dsh-icon-role="assistant"]) */
+[data-dshte-set~="card.background"] [data-slot="conversation.chat.flow"] .dsh-tavern-user-bubble {
+  background: var(--dshte-card-bg) !important;
+}
+[data-dshte-set~="card.color"] [data-slot="conversation.chat.flow"] .dsh-tavern-user-bubble {
+  color: var(--dshte-card-color) !important;
+}
+[data-dshte-set~="card.borderWidth"] [data-slot="conversation.chat.flow"] .dsh-tavern-user-bubble {
+  border: var(--dshte-card-border-width) var(--dshte-card-border-style, solid) var(--dshte-card-border-color, currentColor) !important;
+}
+[data-dshte-set~="card.radius"] [data-slot="conversation.chat.flow"] .dsh-tavern-user-bubble {
+  border-radius: var(--dshte-card-radius) !important;
+}
+[data-dshte-set~="card.shadow"] [data-slot="conversation.chat.flow"] .dsh-tavern-user-bubble {
+  box-shadow: var(--dshte-card-shadow) !important;
+}
+[data-dshte-set~="card.paddingX"] [data-slot="conversation.chat.flow"] .dsh-tavern-user-bubble {
+  padding-left: var(--dshte-card-padding-x) !important;
+  padding-right: var(--dshte-card-padding-x) !important;
+}
+[data-dshte-set~="card.paddingY"] [data-slot="conversation.chat.flow"] .dsh-tavern-user-bubble {
+  padding-top: var(--dshte-card-padding-y) !important;
+  padding-bottom: var(--dshte-card-padding-y) !important;
+}
+
+/* buttonPrimary / buttonDanger / buttonGhost share the same knob shape */
+[data-dshte-set~="buttonPrimary.background"] [data-slot="conversation.composer.bar"] button[aria-label="发送消息"] {
+  background: var(--dshte-button-primary-bg) !important;
+}
+[data-dshte-set~="buttonPrimary.color"] [data-slot="conversation.composer.bar"] button[aria-label="发送消息"] {
+  color: var(--dshte-button-primary-color) !important;
+}
+[data-dshte-set~="buttonPrimary.borderWidth"] [data-slot="conversation.composer.bar"] button[aria-label="发送消息"] {
+  border: var(--dshte-button-primary-border-width) var(--dshte-button-primary-border-style, solid) var(--dshte-button-primary-border-color, currentColor) !important;
+}
+[data-dshte-set~="buttonPrimary.radius"] [data-slot="conversation.composer.bar"] button[aria-label="发送消息"] {
+  border-radius: var(--dshte-button-primary-radius) !important;
+}
+[data-dshte-set~="buttonPrimary.shadow"] [data-slot="conversation.composer.bar"] button[aria-label="发送消息"] {
+  box-shadow: var(--dshte-button-primary-shadow) !important;
+}
+[data-dshte-set~="buttonPrimary.height"] [data-slot="conversation.composer.bar"] button[aria-label="发送消息"] {
+  height: var(--dshte-button-primary-height) !important;
+}
+[data-dshte-set~="buttonPrimary.fontSize"] [data-slot="conversation.composer.bar"] button[aria-label="发送消息"] {
+  font-size: var(--dshte-button-primary-font-size) !important;
+}
+[data-dshte-set~="buttonPrimary.fontWeight"] [data-slot="conversation.composer.bar"] button[aria-label="发送消息"] {
+  font-weight: var(--dshte-button-primary-font-weight) !important;
+}
+[data-dshte-set~="buttonPrimary.paddingX"] [data-slot="conversation.composer.bar"] button[aria-label="发送消息"] {
+  padding-left: var(--dshte-button-primary-padding-x) !important;
+  padding-right: var(--dshte-button-primary-padding-x) !important;
+}
+[data-dshte-set~="buttonPrimary.paddingY"] [data-slot="conversation.composer.bar"] button[aria-label="发送消息"] {
+  padding-top: var(--dshte-button-primary-padding-y) !important;
+  padding-bottom: var(--dshte-button-primary-padding-y) !important;
+}
+
+[data-dshte-set~="buttonDanger.background"] button.danger {
+  background: var(--dshte-button-danger-bg) !important;
+}
+[data-dshte-set~="buttonDanger.color"] button.danger {
+  color: var(--dshte-button-danger-color) !important;
+}
+[data-dshte-set~="buttonDanger.borderWidth"] button.danger {
+  border: var(--dshte-button-danger-border-width) var(--dshte-button-danger-border-style, solid) var(--dshte-button-danger-border-color, currentColor) !important;
+}
+[data-dshte-set~="buttonDanger.radius"] button.danger {
+  border-radius: var(--dshte-button-danger-radius) !important;
+}
+[data-dshte-set~="buttonDanger.height"] button.danger {
+  height: var(--dshte-button-danger-height) !important;
+}
+[data-dshte-set~="buttonDanger.fontSize"] button.danger {
+  font-size: var(--dshte-button-danger-font-size) !important;
+}
+[data-dshte-set~="buttonDanger.fontWeight"] button.danger {
+  font-weight: var(--dshte-button-danger-font-weight) !important;
+}
+[data-dshte-set~="buttonDanger.paddingX"] button.danger {
+  padding-left: var(--dshte-button-danger-padding-x) !important;
+  padding-right: var(--dshte-button-danger-padding-x) !important;
+}
+[data-dshte-set~="buttonDanger.paddingY"] button.danger {
+  padding-top: var(--dshte-button-danger-padding-y) !important;
+  padding-bottom: var(--dshte-button-danger-padding-y) !important;
+}
+
+[data-dshte-set~="buttonGhost.background"] .dsh-tavern-choice-trigger {
+  background: var(--dshte-button-ghost-bg) !important;
+}
+[data-dshte-set~="buttonGhost.color"] .dsh-tavern-choice-trigger {
+  color: var(--dshte-button-ghost-color) !important;
+}
+[data-dshte-set~="buttonGhost.borderWidth"] .dsh-tavern-choice-trigger {
+  border: var(--dshte-button-ghost-border-width) var(--dshte-button-ghost-border-style, solid) var(--dshte-button-ghost-border-color, currentColor) !important;
+}
+[data-dshte-set~="buttonGhost.radius"] .dsh-tavern-choice-trigger {
+  border-radius: var(--dshte-button-ghost-radius) !important;
+}
+[data-dshte-set~="buttonGhost.height"] .dsh-tavern-choice-trigger {
+  height: var(--dshte-button-ghost-height) !important;
+}
+[data-dshte-set~="buttonGhost.fontSize"] .dsh-tavern-choice-trigger {
+  font-size: var(--dshte-button-ghost-font-size) !important;
+}
+[data-dshte-set~="buttonGhost.fontWeight"] .dsh-tavern-choice-trigger {
+  font-weight: var(--dshte-button-ghost-font-weight) !important;
+}
+[data-dshte-set~="buttonGhost.paddingX"] .dsh-tavern-choice-trigger {
+  padding-left: var(--dshte-button-ghost-padding-x) !important;
+  padding-right: var(--dshte-button-ghost-padding-x) !important;
+}
+[data-dshte-set~="buttonGhost.paddingY"] .dsh-tavern-choice-trigger {
+  padding-top: var(--dshte-button-ghost-padding-y) !important;
+  padding-bottom: var(--dshte-button-ghost-padding-y) !important;
+}
+
+/* input — the real composer box [data-composer-card] */
+[data-dshte-set~="input.background"] [data-composer-card] {
+  background: var(--dshte-input-bg) !important;
+}
+[data-dshte-set~="input.color"] [data-composer-input] {
+  color: var(--dshte-input-color) !important;
+}
+[data-dshte-set~="input.borderWidth"] [data-composer-card] {
+  border: var(--dshte-input-border-width) var(--dshte-input-border-style, solid) var(--dshte-input-border-color, currentColor) !important;
+}
+[data-dshte-set~="input.radius"] [data-composer-card] {
+  border-radius: var(--dshte-input-radius) !important;
+}
+[data-dshte-set~="input.shadow"] [data-composer-card] {
+  box-shadow: var(--dshte-input-shadow) !important;
+}
+[data-dshte-set~="input.fontSize"] [data-composer-input] {
+  font-size: var(--dshte-input-font-size) !important;
+}
+[data-dshte-set~="input.lineHeight"] [data-composer-input] {
+  line-height: var(--dshte-input-line-height);
+}
+[data-dshte-set~="input.paddingX"] [data-composer-card] {
+  padding-left: var(--dshte-input-padding-x) !important;
+  padding-right: var(--dshte-input-padding-x) !important;
+}
+[data-dshte-set~="input.paddingY"] [data-composer-card] {
+  padding-top: var(--dshte-input-padding-y) !important;
+  padding-bottom: var(--dshte-input-padding-y) !important;
+}
+[data-dshte-set~="input.placeholderColor"] [data-composer-placeholder],
+[data-dshte-set~="input.placeholderColor"] [data-composer-input]::placeholder {
+  color: var(--dshte-input-placeholder-color) !important;
+}
+
+/* quote — markdown blockquote inside the real conversation flow */
+[data-dshte-set~="quote.background"] [data-slot="conversation.chat.flow"] blockquote {
+  background: var(--dshte-quote-bg) !important;
+}
+[data-dshte-set~="quote.color"] [data-slot="conversation.chat.flow"] blockquote {
+  color: var(--dshte-quote-color) !important;
+}
+[data-dshte-set~="quote.radius"] [data-slot="conversation.chat.flow"] blockquote {
+  border-radius: var(--dshte-quote-radius) !important;
+}
+[data-dshte-set~="quote.fontSize"] [data-slot="conversation.chat.flow"] blockquote {
+  font-size: var(--dshte-quote-font-size) !important;
+}
+[data-dshte-set~="quote.lineHeight"] [data-slot="conversation.chat.flow"] blockquote {
+  line-height: var(--dshte-quote-line-height);
+}
+[data-dshte-set~="quote.letterSpacing"] [data-slot="conversation.chat.flow"] blockquote {
+  letter-spacing: var(--dshte-quote-letter-spacing) !important;
+}
+[data-dshte-set~="quote.paddingX"] [data-slot="conversation.chat.flow"] blockquote {
+  padding-left: var(--dshte-quote-padding-x) !important;
+  padding-right: var(--dshte-quote-padding-x) !important;
+}
+[data-dshte-set~="quote.paddingY"] [data-slot="conversation.chat.flow"] blockquote {
+  padding-top: var(--dshte-quote-padding-y) !important;
+  padding-bottom: var(--dshte-quote-padding-y) !important;
+}
+[data-dshte-set~="quote.borderWidth"] [data-slot="conversation.chat.flow"] blockquote {
+  border-left: var(--dshte-quote-border-width) var(--dshte-quote-border-style, solid) var(--dshte-quote-border-color, currentColor) !important;
+}
+
+/* navItem — Tavern's own semantic row class (not a build hash) */
+[data-dshte-set~="navItem.color"] .dsh-tavern-side-row-main {
+  color: var(--dshte-nav-item-color) !important;
+}
+[data-dshte-set~="navItem.fontSize"] .dsh-tavern-side-row-main {
+  font-size: var(--dshte-nav-item-font-size) !important;
+}
+[data-dshte-set~="navItem.fontWeight"] .dsh-tavern-side-row-main {
+  font-weight: var(--dshte-nav-item-font-weight) !important;
+}
+[data-dshte-set~="navItem.height"] .dsh-tavern-side-row-main {
+  height: var(--dshte-nav-item-height) !important;
+}
+[data-dshte-set~="navItem.radius"] .dsh-tavern-side-row-main {
+  border-radius: var(--dshte-nav-item-radius) !important;
+}
+[data-dshte-set~="navItem.paddingX"] .dsh-tavern-side-row-main {
+  padding-left: var(--dshte-nav-item-padding-x) !important;
+  padding-right: var(--dshte-nav-item-padding-x) !important;
+}
+[data-dshte-set~="navItem.paddingY"] .dsh-tavern-side-row-main {
+  padding-top: var(--dshte-nav-item-padding-y) !important;
+  padding-bottom: var(--dshte-nav-item-padding-y) !important;
+}
+[data-dshte-set~="navItem.activeBackground"] .dsh-tavern-side-row-main:hover,
+[data-dshte-set~="navItem.activeBackground"] .dsh-tavern-side-row-main[class*="active"],
+[data-dshte-set~="navItem.activeBackground"] .dsh-tavern-side-row-main[aria-current] {
+  background: var(--dshte-nav-item-active-bg) !important;
+}
+[data-dshte-set~="navItem.activeColor"] .dsh-tavern-side-row-main:hover,
+[data-dshte-set~="navItem.activeColor"] .dsh-tavern-side-row-main[class*="active"],
+[data-dshte-set~="navItem.activeColor"] .dsh-tavern-side-row-main[aria-current] {
+  color: var(--dshte-nav-item-active-color) !important;
+}
+
+/* eyebrow — sidebar brand mark/name slots */
+[data-dshte-set~="eyebrow.color"] .dsh-tavern-side-title,
+[data-dshte-set~="eyebrow.color"] .dsh-tavern-side-title {
+  color: var(--dshte-eyebrow-color) !important;
+}
+[data-dshte-set~="eyebrow.fontSize"] .dsh-tavern-side-title,
+[data-dshte-set~="eyebrow.fontSize"] .dsh-tavern-side-title {
+  font-size: var(--dshte-eyebrow-font-size) !important;
+}
+[data-dshte-set~="eyebrow.fontWeight"] .dsh-tavern-side-title,
+[data-dshte-set~="eyebrow.fontWeight"] .dsh-tavern-side-title {
+  font-weight: var(--dshte-eyebrow-font-weight) !important;
+}
+[data-dshte-set~="eyebrow.letterSpacing"] .dsh-tavern-side-title,
+[data-dshte-set~="eyebrow.letterSpacing"] .dsh-tavern-side-title {
+  letter-spacing: var(--dshte-eyebrow-letter-spacing) !important;
+}
+[data-dshte-set~="eyebrow.textTransform"] .dsh-tavern-side-title,
+[data-dshte-set~="eyebrow.textTransform"] .dsh-tavern-side-title {
+  text-transform: var(--dshte-eyebrow-text-transform) !important;
+}
+
+/* badge — composer dock statistics pill */
+[data-dshte-set~="badge.background"] .dsh-tavern-mvu-receipt-summary {
+  background: var(--dshte-badge-bg) !important;
+}
+[data-dshte-set~="badge.color"] .dsh-tavern-mvu-receipt-summary {
+  color: var(--dshte-badge-color) !important;
+}
+[data-dshte-set~="badge.borderWidth"] .dsh-tavern-mvu-receipt-summary {
+  border: var(--dshte-badge-border-width) var(--dshte-badge-border-style, solid) var(--dshte-badge-border-color, currentColor) !important;
+}
+[data-dshte-set~="badge.radius"] .dsh-tavern-mvu-receipt-summary {
+  border-radius: var(--dshte-badge-radius) !important;
+}
+[data-dshte-set~="badge.fontSize"] .dsh-tavern-mvu-receipt-summary {
+  font-size: var(--dshte-badge-font-size) !important;
+}
+[data-dshte-set~="badge.fontWeight"] .dsh-tavern-mvu-receipt-summary {
+  font-weight: var(--dshte-badge-font-weight) !important;
+}
+[data-dshte-set~="badge.paddingX"] .dsh-tavern-mvu-receipt-summary {
+  padding-left: var(--dshte-badge-padding-x) !important;
+  padding-right: var(--dshte-badge-padding-x) !important;
+}
+[data-dshte-set~="badge.paddingY"] .dsh-tavern-mvu-receipt-summary {
+  padding-top: var(--dshte-badge-padding-y) !important;
+  padding-bottom: var(--dshte-badge-padding-y) !important;
+}
+
+/* fileCard — rightbar / attachment file cards (miss in the captured session) */
+[data-dshte-set~="fileCard.background"] .fork-status-card,
+[data-dshte-set~="fileCard.background"] [data-sidebar-right-panel] .dsh-tavern-status-section {
+  background: var(--dshte-file-card-bg) !important;
+}
+[data-dshte-set~="fileCard.color"] .fork-status-card,
+[data-dshte-set~="fileCard.color"] [data-sidebar-right-panel] .dsh-tavern-status-section {
+  color: var(--dshte-file-card-color) !important;
+}
+[data-dshte-set~="fileCard.borderWidth"] .fork-status-card,
+[data-dshte-set~="fileCard.borderWidth"] [data-sidebar-right-panel] .dsh-tavern-status-section {
+  border: var(--dshte-file-card-border-width) var(--dshte-file-card-border-style, solid) var(--dshte-file-card-border-color, currentColor) !important;
+}
+[data-dshte-set~="fileCard.radius"] .fork-status-card,
+[data-dshte-set~="fileCard.radius"] [data-sidebar-right-panel] .dsh-tavern-status-section {
+  border-radius: var(--dshte-file-card-radius) !important;
+}
+[data-dshte-set~="fileCard.shadow"] .fork-status-card,
+[data-dshte-set~="fileCard.shadow"] [data-sidebar-right-panel] .dsh-tavern-status-section {
+  box-shadow: var(--dshte-file-card-shadow) !important;
+}
+[data-dshte-set~="fileCard.fontSize"] .fork-status-card,
+[data-dshte-set~="fileCard.fontSize"] [data-sidebar-right-panel] .dsh-tavern-status-section {
+  font-size: var(--dshte-file-card-font-size) !important;
+}
+[data-dshte-set~="fileCard.lineHeight"] .fork-status-card,
+[data-dshte-set~="fileCard.lineHeight"] [data-sidebar-right-panel] .dsh-tavern-status-section {
+  line-height: var(--dshte-file-card-line-height);
+}
+[data-dshte-set~="fileCard.paddingX"] .fork-status-card,
+[data-dshte-set~="fileCard.paddingX"] [data-sidebar-right-panel] .dsh-tavern-status-section {
+  padding-left: var(--dshte-file-card-padding-x) !important;
+  padding-right: var(--dshte-file-card-padding-x) !important;
+}
+[data-dshte-set~="fileCard.paddingY"] .fork-status-card,
+[data-dshte-set~="fileCard.paddingY"] [data-sidebar-right-panel] .dsh-tavern-status-section {
+  padding-top: var(--dshte-file-card-padding-y) !important;
+  padding-bottom: var(--dshte-file-card-padding-y) !important;
+}
+
+/* codeBlock — markdown pre / inline code in the real conversation flow */
+[data-dshte-set~="codeBlock.background"] [data-slot="conversation.chat.flow"] pre {
+  background: var(--dshte-code-block-bg) !important;
+}
+[data-dshte-set~="codeBlock.color"] [data-slot="conversation.chat.flow"] pre,
+[data-dshte-set~="codeBlock.color"] [data-slot="conversation.chat.flow"] pre code {
+  color: var(--dshte-code-block-color) !important;
+}
+[data-dshte-set~="codeBlock.borderWidth"] [data-slot="conversation.chat.flow"] pre {
+  border: var(--dshte-code-block-border-width) var(--dshte-code-block-border-style, solid) var(--dshte-code-block-border-color, currentColor) !important;
+}
+[data-dshte-set~="codeBlock.radius"] [data-slot="conversation.chat.flow"] pre {
+  border-radius: var(--dshte-code-block-radius) !important;
+}
+[data-dshte-set~="codeBlock.fontSize"] [data-slot="conversation.chat.flow"] pre,
+[data-dshte-set~="codeBlock.fontSize"] [data-slot="conversation.chat.flow"] pre code {
+  font-size: var(--dshte-code-block-font-size) !important;
+}
+[data-dshte-set~="codeBlock.lineHeight"] [data-slot="conversation.chat.flow"] pre,
+[data-dshte-set~="codeBlock.lineHeight"] [data-slot="conversation.chat.flow"] pre code {
+  line-height: var(--dshte-code-block-line-height);
+}
+[data-dshte-set~="codeBlock.paddingX"] [data-slot="conversation.chat.flow"] pre {
+  padding-left: var(--dshte-code-block-padding-x) !important;
+  padding-right: var(--dshte-code-block-padding-x) !important;
+}
+[data-dshte-set~="codeBlock.paddingY"] [data-slot="conversation.chat.flow"] pre {
+  padding-top: var(--dshte-code-block-padding-y) !important;
+  padding-bottom: var(--dshte-code-block-padding-y) !important;
+}
+
+/* ── Step 5: typography (opt-in per knob, same rule as Step 4) ───────────── */
+
+[data-dshte-set~="typography.font.sans"] body {
+  font-family: var(--dshte-font-sans) !important;
+}
+[data-dshte-set~="typography.font.mono"] [data-slot="conversation.session"] code,
+[data-dshte-set~="typography.font.mono"] [data-slot="conversation.session"] pre,
+[data-dshte-set~="typography.font.mono"] [data-slot="conversation.input.dock"] textarea {
+  font-family: var(--dshte-font-mono) !important;
+}
+[data-dshte-set~="typography.text.body"] [data-slot="conversation.session"] {
+  font-size: var(--dshte-text-body) !important;
+}
+[data-dshte-set~="typography.leading.body"] [data-slot="conversation.session"] {
+  line-height: var(--dshte-leading-body) !important;
+}
+[data-dshte-set~="typography.tracking.eyebrow"] [data-slot="sidebar.brand.name"],
+[data-dshte-set~="typography.tracking.eyebrow"] .dsh-tavern-side-title {
+  letter-spacing: var(--dshte-tracking-eyebrow) !important;
+}

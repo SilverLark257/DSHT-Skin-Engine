@@ -1,0 +1,279 @@
+{
+  "format": "dshte.theme",
+  "formatVersion": 1,
+  "release": "1.0.0",
+  "id": "cocreate-paper",
+  "name": "Cocreate Warm Paper",
+  "nameZh": "暖纸工作台",
+  "author": {
+    "name": "DSH Tavern Skin Engine",
+    "url": "local://cocreate-paper"
+  },
+  "description": "COCREATE 参考图的暖纸底 + 浮白卡片 + 紫墨强调。浅色设计，深色档为镜像占位。",
+  "license": "CC-BY-4.0",
+  "engine": ">=0.1.0",
+  "colorScheme": "light",
+  "missingScheme": "mirror",
+  "tags": [
+    "light",
+    "paper",
+    "editorial",
+    "tavern"
+  ],
+  "preview": {
+    "bg": "#EFE8E0",
+    "fg": "#14110F",
+    "accent": "#7557A8"
+  },
+  "tokens": {
+    "light": {
+      "--dsw-alias-bg-base": "#EFE8E0",
+      "--dsw-alias-bg-layer-1": "#FEFAF7",
+      "--dsw-alias-bg-layer-2": "#F6F1EB",
+      "--dsw-alias-bg-layer-3": "#FFFFFF",
+      "--dsw-specific-sidebar-fill": "#EFE7E4",
+      "--dsw-specific-input-major": "#FFFFFF",
+      "--dsw-specific-bubble": "#EAE2DF",
+      "--dsw-alias-brand-primary": "#7557A8",
+      "--dsw-alias-brand-text": "#FFFFFF",
+      "--dsw-alias-button-primary-hover": "#63478F",
+      "--dsw-alias-label-primary": "#14110F",
+      "--dsw-alias-label-secondary": "#5F5A52",
+      "--dsw-alias-label-tertiary": "#948F89",
+      "--dsw-alias-border-l1": "#DCD8D7",
+      "--dsw-alias-border-l2": "#CAC6C3",
+      "--dsw-alias-interactive-bg-hover": "color-mix(in srgb, #7557A8 10%, transparent)",
+      "--dsw-alias-interactive-bg-active": "color-mix(in srgb, #7557A8 18%, transparent)",
+      "--dsw-alias-markdown-code-block": "#EAE2DF",
+      "--dsh-tavern-accent": "#7557A8",
+      "--dsh-tavern-accent-soft": "#EAE4EE",
+      "--dsh-tavern-accent-hairline": "#DCD8D7",
+      "--dsh-tavern-radius-sm": "4px",
+      "--dsh-tavern-radius-md": "8px",
+      "--dsh-tavern-radius-lg": "10px",
+      "--dshte-bg-base": "#EFE8E0",
+      "--dshte-bg-sidebar": "#EFE7E4",
+      "--dshte-bg-gutter": "#F6F1EB",
+      "--dshte-bg-sunken": "#D5D2CD",
+      "--dshte-bg-surface": "#FEFAF7",
+      "--dshte-bg-elevated": "#FFFFFF",
+      "--dshte-bg-muted": "#EAE2DF",
+      "--dshte-bg-accent-soft": "#EAE4EE",
+      "--dshte-bg-accent-faint": "#F7F1FB",
+      "--dshte-fg-primary": "#14110F",
+      "--dshte-fg-body": "#35322C",
+      "--dshte-fg-secondary": "#5F5A52",
+      "--dshte-fg-muted": "#948F89",
+      "--dshte-fg-placeholder": "#797979",
+      "--dshte-fg-eyebrow": "#6D6278",
+      "--dshte-fg-inverse": "#FFFFFF",
+      "--dshte-accent": "#7557A8",
+      "--dshte-accent-weak": "#C8BDEB",
+      "--dshte-accent-rule": "#6C5B89",
+      "--dshte-accent-ink": "#5E4876",
+      "--dshte-accent-pill": "#E1D7E5",
+      "--dshte-danger": "#C34B5A",
+      "--dshte-danger-bg": "#FCE4E7",
+      "--dshte-success": "#2FB587",
+      "--dshte-success-bg": "#E4F3EA",
+      "--dshte-success-ink": "#36AF82",
+      "--dshte-border-hairline": "#DCD8D7",
+      "--dshte-border-rule": "#E9E2DA",
+      "--dshte-border-sidebar": "#E5E1D9",
+      "--dshte-shadow-line": "#CAC6C3",
+      "--dshte-font-brand": "\"COCREATE Display\",\"Inter\",\"Helvetica Neue\",\"Segoe UI\",sans-serif"
+    }
+  },
+  "typography": {
+    "sans": "\"PingFang SC\",\"Noto Sans SC\",\"HarmonyOS Sans SC\",\"Microsoft YaHei\",system-ui,sans-serif",
+    "latin": "\"Inter\",\"Helvetica Neue\",\"Segoe UI\",\"SF Pro Text\",sans-serif",
+    "display": "\"Inter\",\"PingFang SC\",\"Microsoft YaHei\",system-ui,sans-serif",
+    "mono": "\"JetBrains Mono\",\"Cascadia Code\",Consolas,monospace",
+    "sizes": {
+      "eyebrow": 10,
+      "brand": 16,
+      "panel": 20,
+      "h2": 16,
+      "body": 13,
+      "note": 11,
+      "nav": 12.5,
+      "group": 11,
+      "button": 11.5,
+      "meta": 10,
+      "chip": 12
+    },
+    "weights": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "black": 800
+    },
+    "leading": {
+      "body": 1.6,
+      "tight": 1.35
+    },
+    "tracking": {
+      "eyebrow": "0.12em"
+    },
+    "fonts": [
+      {
+        "family": "COCREATE Display",
+        "file": "assets/fonts/cocreate-display-regular-0f4a15e29a.woff2",
+        "weight": 400,
+        "style": "normal",
+        "display": "swap"
+      },
+      {
+        "family": "COCREATE Display",
+        "file": "assets/fonts/cocreate-display-medium-8a81ca6f05.woff2",
+        "weight": 500,
+        "style": "normal",
+        "display": "swap"
+      }
+    ]
+  },
+  "radii": {
+    "quote": 4,
+    "sm": 8,
+    "card": 10,
+    "input": 14,
+    "pill": 9999
+  },
+  "spacing": {
+    "xxs": 2,
+    "xs": 8,
+    "sm": 12,
+    "md": 20,
+    "lg": 28,
+    "xl": 36,
+    "xxl": 64,
+    "xxxl": 70,
+    "inputPad": 14,
+    "sidebarInset": 15,
+    "navPadX": 11,
+    "rightbarInset": 16
+  },
+  "shadows": {
+    "card": "0 1px 0 rgba(0,0,0,.10), 0 8px 20px rgba(90,70,50,.06)",
+    "spine": "0 0 10px rgba(191,178,231,.7)",
+    "line": "#CAC6C3"
+  },
+  "regions": {
+    "sidebar": {
+      "background": "var(--dshte-bg-sidebar)",
+      "shadow": "inset -1px 0 0 var(--dshte-border-sidebar)"
+    },
+    "center": {
+      "background": "var(--dshte-bg-base)",
+      "shadow": "inset 4px 0 0 0 var(--dshte-accent-weak)",
+      "backgroundImage": "url(assets/images/paper-grain-5b5310ab02.svg)"
+    },
+    "rightbar": {
+      "background": "transparent"
+    },
+    "composer": {
+      "background": "var(--dshte-bg-elevated)",
+      "shadow": "0 8px 20px rgba(90,70,50,.06)"
+    }
+  },
+  "components": {
+    "card": {
+      "background": "var(--dshte-bg-surface)",
+      "borderColor": "var(--dshte-border-hairline)",
+      "borderWidth": 1,
+      "radius": 10,
+      "shadow": "var(--dshte-shadow-card)",
+      "paddingX": 20,
+      "paddingY": 20
+    },
+    "buttonPrimary": {
+      "background": "var(--dshte-accent)",
+      "color": "var(--dshte-fg-inverse)",
+      "radius": 9999,
+      "height": 33,
+      "paddingX": 20,
+      "fontSize": 11.5,
+      "fontWeight": 600
+    },
+    "buttonDanger": {
+      "background": "var(--dshte-danger-bg)",
+      "color": "var(--dshte-danger)",
+      "radius": 9999,
+      "height": 33,
+      "paddingX": 20,
+      "fontSize": 11.5,
+      "fontWeight": 600
+    },
+    "buttonGhost": {
+      "background": "var(--dshte-accent-pill)",
+      "color": "var(--dshte-accent-ink)",
+      "radius": 8,
+      "height": 22,
+      "paddingX": 12,
+      "fontSize": 10.5,
+      "fontWeight": 500
+    },
+    "input": {
+      "background": "var(--dshte-bg-elevated)",
+      "color": "var(--dshte-fg-body)",
+      "radius": 14,
+      "paddingX": 14,
+      "paddingY": 14,
+      "fontSize": 13,
+      "placeholderColor": "var(--dshte-fg-placeholder)"
+    },
+    "quote": {
+      "background": "var(--dshte-bg-muted)",
+      "color": "var(--dshte-fg-body)",
+      "radius": 4,
+      "paddingX": 14,
+      "paddingY": 12,
+      "fontSize": 13,
+      "lineHeight": 1.6,
+      "borderColor": "var(--dshte-accent-rule)",
+      "borderWidth": 3,
+      "borderStyle": "solid"
+    },
+    "navItem": {
+      "color": "var(--dshte-fg-secondary)",
+      "fontSize": 12.5,
+      "height": 37,
+      "radius": 8,
+      "paddingX": 11,
+      "activeBackground": "var(--dshte-bg-elevated)",
+      "activeColor": "var(--dshte-fg-primary)"
+    },
+    "eyebrow": {
+      "color": "var(--dshte-fg-eyebrow)",
+      "fontSize": 10,
+      "fontWeight": 500,
+      "letterSpacing": "0.12em",
+      "textTransform": "uppercase"
+    },
+    "badge": {
+      "background": "var(--dshte-success-bg)",
+      "color": "var(--dshte-success-ink)",
+      "radius": 9999,
+      "fontSize": 10.5,
+      "fontWeight": 600,
+      "paddingX": 8,
+      "paddingY": 2
+    },
+    "fileCard": {
+      "background": "var(--dshte-bg-surface)",
+      "borderColor": "var(--dshte-border-hairline)",
+      "borderWidth": 1,
+      "radius": 8,
+      "paddingX": 12,
+      "paddingY": 12
+    },
+    "codeBlock": {
+      "background": "var(--dshte-bg-muted)",
+      "color": "var(--dshte-fg-body)",
+      "radius": 8,
+      "fontSize": 11
+    }
+  },
+  "css": "theme.css"
+}

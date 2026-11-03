@@ -1,0 +1,9 @@
+{
+  "format": "dshte.theme",
+  "formatVersion": 1,
+  "id": "fixture-truncated",
+  "name": "Fixture Truncated",
+  "colorScheme": "light",
+  "tokens": {
+    "light": {
+      "--dsw-alias-bg-base": "#FAF9F5",

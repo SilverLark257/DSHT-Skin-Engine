@@ -1,0 +1,1 @@
+[data-slot="root"] [class*="_frame"] { grid-template-columns: 280px 1fr !important; }
